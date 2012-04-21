@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>nz.co.aetheric</groupId>
-        <artifactId>parent</artifactId>
+        <artifactId>company</artifactId>
         <version>1.0</version>
     </parent>
 

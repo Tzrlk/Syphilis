@@ -10,12 +10,10 @@
     <packaging>pom</packaging>
 
     <name>Reactor Build</name>
-    <description>Groups together all sub modules in one place so they can be compiled / packaged / etc as a single
-        unit.</description>
+    <description>Groups together all sub modules in one place so they can be
+    compiled / packaged / etc as a single unit.</description>
 
     <modules>
-        <module>aetheric</module>
-        <module>logging</module>
         <module>parent</module>
         <module>core</module>
         <module>persist</module>
