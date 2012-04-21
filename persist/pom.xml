@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>nz.co.aetheric.syphilis</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.0</version>
+    </parent>
+
+    <artifactId>persist</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+
+    <name>Syphilis Persistence</name>
+    <description>The ORM persistence layer for the syphilis project.</description>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-mongodb</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>nz.co.aetheric.syphilis</groupId>
+            <artifactId>util</artifactId>
+        </dependency>
+        
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>com.googlecode</groupId>
+                <artifactId>maven-mongodb-plugin</artifactId>
+                <configuration>
+                    <dbConnectionSettings>
+                        <hostname>localhost</hostname>
+                        <database>someDatabase</database>
+                    </dbConnectionSettings>
+                    <dbUpdateScriptsDirectory>
+                        <param>src/main/mongo/update</param>
+                    </dbUpdateScriptsDirectory>
+                    <dbCreateScriptsDirectory>
+                        <param>src/main/mongo/create</param>
+                    </dbCreateScriptsDirectory>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+    
+</project>

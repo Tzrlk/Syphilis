@@ -13,9 +13,8 @@ The solution? Automate.
 The projects dependencies and build configuration is managed by Maven, with a
 grand total of 6 modules to work with:
 
-* syphilis
-* syphilis-build
-* syphilis-core
-* syphilis-persist
-* syphilis-webapp
-* syphilis-mobile
+* parent
+* core
+* persist
+* webapp
+* mobile

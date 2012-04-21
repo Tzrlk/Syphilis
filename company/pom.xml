@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>nz.co.aetheric</groupId>
+    <artifactId>company</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+
+    <name>Aetheric Company</name>
+    <description>The company-wide application root pom.</description>
+    <inceptionYear>2012</inceptionYear>
+
+    <organization>
+        <name>Aetheric Engineering</name>
+        <url>http://www.aetheric.co.nz</url>
+    </organization>
+
+    <developers>
+
+        <developer>
+            <id>peterc</id>
+            <name>Peter Cummuskey</name>
+            <email>peterc@aetheric.co.nz</email>
+            <organization>Aetheric Engineering</organization>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+            <timezone>Pacific/Auckland</timezone>
+        </developer>
+        
+    </developers>
+
+    <ciManagement>
+        <system>Jenkins</system>
+        <url>http://build.aetheric.co.nz</url>
+    </ciManagement>
+
+    <profiles>
+
+        <profile>
+            <id>dev</id>
+        </profile>
+
+        <profile>
+            <id>test</id>
+        </profile>
+
+        <profile>
+            <id>prod</id>
+        </profile>
+
+    </profiles>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>nz.co.aetheric</groupId>
+                <artifactId>logging</artifactId>
+                <version>1.0</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>2.3.2</version>
+                </plugin>
+                
+            </plugins>
+        </pluginManagement>
+    </build>
+    
+</project>

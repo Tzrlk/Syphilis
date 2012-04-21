@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>nz.co.aetheric</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.0</version>
+    </parent>
+
+    <groupId>nz.co.aetheric.syphilis</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+
+    <name>Syphilis Parent</name>
+    <description>A management architecture for World of Darkness roleplaying games.</description>
+    <inceptionYear>2012</inceptionYear>
+
+    <issueManagement>
+        <system>github</system>
+        <url>https://github.com/Tzrlk/Syphilis/issues</url>
+    </issueManagement>
+
+    <scm>
+        <connection>scm:git:https://github.com/Tzrlk/Syphilis.git</connection>
+        <developerConnection>scm:git:git@github.com:Tzrlk/Syphilis.git</developerConnection>
+        <url>https://github.com/Tzrlk/Syphilis</url>
+    </scm>
+
+    <repositories>
+
+        <repository>
+            <id>spring-release</id>
+            <name>Spring Maven Release Repository</name>
+            <url>http://repo.springsource.org/libs-release</url>
+        </repository>
+
+        <repository>
+            <id>maven-mongodb-plugin-repo</id>
+            <name>maven mongodb plugin repository</name>
+            <url>http://maven-mongodb-plugin.googlecode.com/svn/maven/repo</url>
+            <layout>default</layout>
+        </repository>
+
+        <repository>
+            <id>projectlombok.org</id>
+            <url>http://projectlombok.org/mavenrepo</url>
+        </repository>
+
+    </repositories>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>nz.co.aetheric</groupId>
+            <artifactId>logging</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>nz.co.aetheric.syphilis</groupId>
+                <artifactId>util</artifactId>
+                <version>1.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>nz.co.aetheric.syphilis</groupId>
+                <artifactId>persist</artifactId>
+                <version>1.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-core</artifactId>
+                <version>3.1.0.RC3</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>3.1.0.RELEASE</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>2.5</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>4.1.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jstl</artifactId>
+                <version>1.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-mapper-asl</artifactId>
+                <version>1.6.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>opensymphony</groupId>
+                <artifactId>sitemesh</artifactId>
+                <version>2.4.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.codehaus.spring-security-oauth</groupId>
+                <artifactId>spring-security-oauth</artifactId>
+                <version>3.9</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-mongodb</artifactId>
+                <version>1.0.1.RELEASE</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>0.9.3</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.0</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <showDeprecation>true</showDeprecation>
+                    <showWarnings>true</showWarnings>
+                    <verbose>true</verbose>
+                    <compilerVersion>1.7</compilerVersion>
+                    <executable>${env.JAVA_HOME_7}/bin/javac</executable>
+                    <fork>true</fork>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+        <pluginManagement>
+            <plugins>
+
+                <!--http://mojo.codehaus.org/tomcat-maven-plugin/usage.html-->
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>tomcat-maven-plugin</artifactId>
+                    <version>1.1</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.tomcat.maven</groupId>
+                    <artifactId>tomcat7-maven-plugin</artifactId>
+                    <version>2.0-beta-1</version>
+                </plugin>
+
+                <!--http://code.google.com/p/maven-mongodb-plugin/-->
+                <plugin>
+                    <groupId>com.googlecode</groupId>
+                    <artifactId>maven-mongodb-plugin</artifactId>
+                    <version>0.2</version>
+                </plugin>
+
+                <!--http://awhitford.github.com/lombok.maven/maven-lombok-plugin/-->
+                <plugin>
+                    <groupId>org.projectlombok</groupId>
+                    <artifactId>maven-lombok-plugin</artifactId>
+                    <version>0.9.3.1</version>
+                    <executions>
+                        <execution>
+                            <phase>generate-sources</phase>
+                            <goals>
+                                <goal>delombok</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <dependencies>
+                        <dependency>
+                            <groupId>sun.jdk</groupId>
+                            <artifactId>tools</artifactId>
+                            <version>1.7</version>
+                            <scope>system</scope>
+                            <systemPath>${env.JAVA_HOME_7}/../lib/tools.jar</systemPath>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
